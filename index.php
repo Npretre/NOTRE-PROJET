@@ -111,6 +111,7 @@ include_once 'controlers/indexSignUp.php';
 
             </div> <!-- /form -->
         </div>
+    <?php include_once 'footer.php'; ?>
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>

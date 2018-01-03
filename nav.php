@@ -5,9 +5,9 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
 <ul class="nav sidebar-nav">
   <li class="sidebar-brand"> <a href="#"> Parky </a> </li>
-  <li> <a href="site.php"><i class="fa fa-fw fa-home"></i> Accueil</a> </li>
-  <li> <a href="profile.php"><i class="fa fa-fw fa-folder"></i> Profil</a> </li>
-  <li> <a href="group.php"><i class="fa fa-fw fa-file-o"></i> Mes DJ</a> </li>
+  <li> <a class="ajax-nav" href="site.php"><i class="fa fa-fw fa-home"></i> Accueil</a> </li>
+  <li> <a class="ajax-nav" href="group.php"><i class="fa fa-fw fa-folder"></i> Profil</a> </li>
+  <li> <a class="ajax-nav" href="site_1.php"><i class="fa fa-fw fa-file-o"></i> Mes DJ</a> </li>
   <li> <a href="#"><i class="fa fa-fw fa-cog"></i> Radio</a> </li>
   <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-plus"></i> Playlists <span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
@@ -54,4 +54,7 @@
 </div>
 </div>
 </div>
+
+<div id="page-content-wrapper">
+<button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas"> <span class="hamb-top"></span> <span class="hamb-middle"></span> <span class="hamb-bottom"></span> </button>
 

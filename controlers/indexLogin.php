@@ -1,8 +1,8 @@
 <?php
 
 if (isset($_POST['formconnexion'])) {
-    $mdpconnect = htmlspecialchars($_POST['pass_connexion']);
-    $pseudoconnect = htmlspecialchars($_POST['pseudo_connexion']);
+    $mdpconnect = strip_tags($_POST['pass_connexion']);
+    $pseudoconnect = strip_tags($_POST['pseudo_connexion']);
 
     if (!empty($pseudoconnect) && !empty($mdpconnect)) {
               if(!preg_match(" /^[a-zA-Z0-9_]{3,16}$/ ", $pseudoconnect)){

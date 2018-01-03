@@ -1,0 +1,1 @@
+<p>Ceci est le pied-de-page. Il est commun à toutes les pages ajax.</p>
