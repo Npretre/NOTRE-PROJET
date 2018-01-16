@@ -3,12 +3,13 @@
 
 <!-- Sidebar -->
 <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+
 <ul class="nav sidebar-nav">
   <li class="sidebar-brand"> <a href="#"> Parky </a> </li>
   <li> <a class="ajax-nav" href="site.php"><i class="fa fa-fw fa-home"></i> Accueil</a> </li>
-  <li> <a class="ajax-nav" href="group.php"><i class="fa fa-fw fa-folder"></i> Profil</a> </li>
-  <li> <a class="ajax-nav" href="site_1.php"><i class="fa fa-fw fa-file-o"></i> Mes DJ</a> </li>
-  <li> <a href="#"><i class="fa fa-fw fa-cog"></i> Radio</a> </li>
+  <li> <a class="ajax-nav" href="profil.php?id=<?= $_SESSION['id']; ?>"><i class="fa fa-fw fa-folder"></i> Profil</a> </li>
+  <li> <a class="ajax-nav" href="group.php"><i class="fa fa-fw fa-file-o"></i> Mes DJ</a> </li>
+  <li> <a class="ajax-nav" href="songs.php"><i class="fa fa-fw fa-cog"></i> Radio</a> </li>
   <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-plus"></i> Playlists <span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
       <li class="dropdown-header">Mes playlists</li>
@@ -20,6 +21,22 @@
   <li> <a href="#"><i class="fa fa-fw fa-twitter"></i> Contact</a> </li>
   <li> <a href="disconnect.php"><i class="fa fa-fw fa-power-off"></i>  Déconnexion</a> </li>
 </ul>
+    
+<div class="music-player">
+  <h3>Sabaton</h3> 
+  <figure class="chart">
+      <img src="assets/img/sparta.jpg" height="200" width="200">
+  </figure>
+
+  <h4>`Sparta`</h4>   
+  <!-- Put in Font Awesome Icons -->
+  <audio controls class="player">
+    <source src="assets/songs/Sabaton-Sparta.mp3" type="audio/mpeg">
+  </audio>
+</div>
+  
+
+
 </nav>
 <!-- /#sidebar-wrapper -->
 

@@ -4,16 +4,9 @@ session_start();
 <!doctype html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Parky all night</title>
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.csss">
-        <link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/master.css">
-        <link rel="stylesheet" href="assets/css/profile.css">
+<?php
+        include "include/header.php";
+?>
     </head>
     <body>
         <?php include_once 'nav.php'; ?>
@@ -24,16 +17,29 @@ session_start();
             <a href="#" class="scrollToTop"></a>
         </div>
         <main>
-            <div class="jumbo"></div>
+            <div class="jumbo"> <img src="assets/img/ffdp-fb.jpg"></div>
             <div class="container icons">
                 <div class="big-icon"></div>
                 <div class="rate">
-                    <a href="" class="star-btn add-btn btn-floating btn-large waves-effect waves-light blue darken-1"><i class="fa fa-info-circle fa-3x" aria-hidden="true"></i></a>
-                    <a class="like-btn add-btn btn-floating btn-large waves-effect waves-light blue darken-1"><i class="fa fa-thumbs-o-up fa-3x" aria-hidden="true"></i></a>
+    <div id="container-floating-rate">
+
+
+
+  <div id="floating-button-rate" data-toggle="tooltip" data-placement="left" data-original-title="Create" onclick="newmail()">
+    <p class="plus">+</p>
+  </div>
+
+</div>
                 </div>
-                <div class="add">
-                    <a class="add-btn btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-                </div>
+    <div id="container-floating">
+
+
+
+  <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create" onclick="newmail()">
+    <p class="plus">+</p>
+  </div>
+
+</div>
             </div>
             <div class="details">
                 <h1>Five Finger Death Punch</h1>
@@ -129,12 +135,6 @@ session_start();
                     <!--/.Panel Clips-->
                 </div>
 
-                <div class="container">
-
-
-
-
-                </div>
 
         </main><?php include 'footer.php'; ?>
     </div>

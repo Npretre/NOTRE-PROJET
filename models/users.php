@@ -71,4 +71,5 @@
        $result = $req->fetch(PDO::FETCH_OBJ);
        return result;
    }
+   
  }

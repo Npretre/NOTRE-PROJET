@@ -26,7 +26,7 @@ var ajaxRequest = new (function () {
                 document.getElementById(sTargetId).innerHTML = vMsg.content;
                 if (bUpdateURL) {
                     history.pushState(oPageInfo, oPageInfo.title, oPageInfo.url);
-                    bUpdateURL = false;
+                    bUpdateURL = true;
                 }
                 break;
             default:

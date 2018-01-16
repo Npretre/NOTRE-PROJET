@@ -1,4 +1,4 @@
-<footer>
+<div class="footer">
     <div class="row socialmedia">
         <div class="col-lg-offset-1 col-lg-2  socialmedia">
             <a href="#"><img src="assets/img/logo.png"></a>
@@ -45,4 +45,4 @@
             </ul>
         </div>
     </div>
-</footer>
+    </div>

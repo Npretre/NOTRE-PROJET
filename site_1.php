@@ -63,30 +63,7 @@ include_once 'models/users.php';
     </div>
     
   </div>
-            <div class="row">
 
-            <div class="lector">
-        <div class="column add-bottom">
-            <div id="mainwrap">
-                <div id="nowPlay">
-                    <span class="left" id="npAction">Paused...</span>
-                    <span class="right" id="npTitle"></span>
-                </div>
-                <div id="audiowrap">
-                    <div id="audio0">
-                        <audio preload id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
-                    </div>
-                    <div id="tracks">
-                        <a id="btnPrev">&larr;</a>
-                        <a id="btnNext">&rarr;</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-        </div>
     <?php require_once 'footer.php'; ?>
 </div>
 

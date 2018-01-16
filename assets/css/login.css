@@ -140,6 +140,7 @@ textarea {
   color: #fff;
   transition: all 0.5s ease;
   -webkit-appearance: none;
+  text-align: center;
 }
 .button:hover, .button:focus {
   background: #e0e422;

@@ -19,9 +19,8 @@ if (isset($_POST['formconnexion'])) {
         if (!$user) {
             $erreur = 'Mauvais mdp ou id';
         } else {
-            
             $_SESSION['pseudo'] = $pseudoconnect;
-            
+            $_SESSION['id'] = $user->id_users;
             header('Location: site.php');
             exit;
         }

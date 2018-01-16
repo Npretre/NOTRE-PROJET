@@ -6,10 +6,10 @@ try {
     catch(Exception $e) { die('Erreur : '.$e->getMessage()); 
   }
     // Récupération des données
-    $requete = $BDD->query('SELECT * FROM artists;');
+    $requete = $BDD->query('SELECT * FROM songs;');
     $lignes = $requete->fetchAll();
     
-    $page_title = "Groupes - Parky";
+    $page_title = "Musiques";
     $as_json = false;
     if (isset($_GET["view_as"]) && $_GET["view_as"] == "json") {
         $as_json = true;
@@ -59,11 +59,11 @@ try {
     foreach($lignes as $ligne) {
 ?>
                 <tr>
-                    <td><a class="ajax-nav" href="site.php"><?php echo $ligne['name']; ?></a></td>
-                    <td><?php echo $ligne['gender1'] . ' / ' . $ligne['gender2']; ?></td>
                     <td><?php echo $ligne['name']; ?></td>
+                    <td><?php echo $ligne['artist'] ?></td>
+                    <td><?php echo $ligne['folder']; ?></td>
                     <td><span  class="explicit"><?php echo $ligne['explicit']; ?></span></td>
-                    <td><?php echo $ligne['name']; ?></td>
+                    <td><button></button></td>
                 </tr>
 <?php
     }
@@ -72,11 +72,10 @@ try {
         </table>
   </div>
 </section>
-    
     </div>
-
+<?php require_once 'footer.php'; ?> 
   </div>
-    <?php require_once 'footer.php'; ?> 
+    
 </div>
 
 <!-- /#page-content-wrapper -->
@@ -95,6 +94,7 @@ try {
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="assets/js/master.js"></script>
+<script src="assets/js/jquery.js" type="text/javascript"></script>
 <?php
         echo "</body>\n</html>";
     }
