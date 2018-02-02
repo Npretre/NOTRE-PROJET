@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_POST['formconnexion'])) {
     $mdpconnect = strip_tags($_POST['pass_connexion']);
     $pseudoconnect = strip_tags($_POST['pseudo_connexion']);

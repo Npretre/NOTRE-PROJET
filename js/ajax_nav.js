@@ -32,20 +32,6 @@ var ajaxRequest = new (function () {
             default:
                 vMsg = nStatus + ": " + (oHTTPStatus[nStatus] || "Unknown");
                 switch (Math.floor(nStatus / 100)) {
-                    /*
-                    case 1:
-                        // Informational 1xx
-                        console.log("Information code " + vMsg);
-                        break;
-                    case 2:
-                        // Successful 2xx
-                        console.log("Successful code " + vMsg);
-                        break;
-                    case 3:
-                        // Redirection 3xx
-                        console.log("Redirection code " + vMsg);
-                        break;
-                    */
                     case 4:
                         /* Client Error 4xx */
                         alert("Client Error #" + vMsg);
