@@ -5,7 +5,6 @@ class parties {
     public $idparties;
     public $name;
     public $description;
-    public $type;
     public $idusers;
     private $pdo;
 
@@ -25,11 +24,10 @@ class parties {
      * @param type $pass
      * @param type $date_inscription
      */
-    public function __construct($idparties = null, $name = '', $description = '', $type = '', $idusers = null) {
+    public function __construct($idparties = null, $name = '', $description = '', $idusers = null) {
         $this->id = $idparties;
         $this->name = $name;
         $this->description = $description;
-        $this->type = $type;
         $this->idusers = $idusers;
         $this->connectDB();
     }
@@ -39,15 +37,14 @@ class parties {
      * @return boolean
      */
     public function addParty() {
-        $req = $this->pdo->prepare('INSERT INTO `parties`(name, description, type, id_users) VALUES(:name, :description, :type, :id_users)');
+        $req = $this->pdo->prepare('INSERT INTO `parties`(name, description, id_users) VALUES(:name, :description, :id_users)');
         $req->bindValue(':name', $this->name, PDO::PARAM_STR);
         $req->bindValue(':description', $this->description, PDO::PARAM_STR);
-        $req->bindValue(':type', $this->type, PDO::PARAM_STR);
         $req->bindValue(':id_users', $_SESSION['id'], PDO::PARAM_INT);
         $req->execute();
     }
-    
-        public function deleteParty() {
+
+    public function deleteParty() {
         $req = $this->pdo->prepare('DELETE FROM persons WHERE id = :id ');
         $req->execute();
     }

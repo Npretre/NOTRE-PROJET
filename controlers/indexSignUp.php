@@ -3,6 +3,7 @@
 if (isset($_POST['formSignUp'])){
         $mdp = htmlspecialchars($_POST['pass']);
         $pseudo = htmlspecialchars($_POST['pseudo']);
+        $confirmMdp = htmlspecialchars($_POST['confirmPass']);
         $mail = htmlspecialchars($_POST['email']);
   if(!empty($pseudo) && !empty($mdp) && !empty($mail)){
       if(!preg_match(" /^[a-zA-Z0-9_]{3,16}$/ ", $pseudo)){
@@ -14,12 +15,19 @@ if (isset($_POST['formSignUp'])){
       if(!preg_match(" /^[a-zA-Z0-9_+-]{3,16}$/ ", $mdp)){
          return($erreur = 'Mauvais format de mot de passe.');
       } 
+      
+      if($mdp != $confirmMdp){
+          return($erreur = 'Mot de passe pas correspondant');
+      } else {
+      
     $users = new users();
     $users->pseudo = $pseudo;
     $users->email = $mail;
     $users->pass = $mdp;
     $users->signUp();
-    //header('Location: confirmation.php');
+    
+    header('Location: confirmation.php');
+      }
   } else{
       $erreur = 'Merci de remplir tous les champs.';
   }

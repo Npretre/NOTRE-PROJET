@@ -71,5 +71,13 @@
        $result = $req->fetch(PDO::FETCH_OBJ);
        return result;
    }
-   
+       public function updateUser() {
+        $query = 'UPDATE `users` SET `pseudo` = :pseudo, `email` = :email, `pass` = :pass WHERE `id` = :id';
+        $updateUser = $this->pdo->prepare($query);
+        $updateUser->bindValue(':pseudo', $this->pseudo, PDO::PARAM_STR);
+        $updateUser->bindValue(':email', $this->email, PDO::PARAM_STR);
+        $updateUser->bindValue(':pass', $this->pass, PDO::PARAM_STR);
+        $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $updateUser->execute();
+    }
  }

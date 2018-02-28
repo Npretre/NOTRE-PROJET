@@ -1,7 +1,7 @@
 <?php session_start();
 include_once 'models/users.php';
-include_once 'controlers/indexLogin.php';
 include_once 'controlers/indexSignUp.php';
+var_dump($_POST);
 ?>
 
 <!doctype html>

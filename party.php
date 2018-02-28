@@ -13,7 +13,6 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
     $reqfood->execute();
     $partyfood = $reqfood->fetch(PDO::FETCH_OBJ);
 }
-
 $page_title = 'Parties';
 $as_json = false;
 if (isset($_GET["view_as"]) && $_GET["view_as"] == "json") {
@@ -34,33 +33,31 @@ if (isset($_GET["view_as"]) && $_GET["view_as"] == "json") {
             <div id="ajax-content">
             <?php } ?>
             <!-- Page Content -->
-            <div class="container">
-                <div class="row">
-                    
-                </div>
-                <div class="row">
-                    <h1><?php echo $partyusers->name; ?></h1>
-                    <h2><?php echo $partyusers->description; ?></h2>
-                </div>
-
-                <div class="row">
-                    <h2><?php echo $partyfood->name; ?></h2>
-                </div>
-
+            <div class="row">
+                
             </div>
+            <div class="row">
+                <h1><?php echo $partyusers->name; ?></h1>
+                <h2><?php echo $partyusers->description; ?></h2>
+            </div>
+            <div class="row">
+                <h2><?php echo $partyfood->name; ?></h2>
+            </div>
+
         </div>
-        <!-- /#page-content-wrapper -->
-        <!-- /#wrapper -->
-        <?php
-        if ($as_json) {
-            echo json_encode(array("page" => $page_title, "content" => ob_get_clean()));
-        } else {
-            ?>
-        </div>
-        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="assets/js/master.js"></script>
-        <?php
-        echo "</body>\n</html>";
-    }
-    ?>
+    </div>
+    <!-- /#page-content-wrapper -->
+    <!-- /#wrapper -->
+    <?php
+    if ($as_json) {
+        echo json_encode(array("page" => $page_title, "content" => ob_get_clean()));
+    } else {
+        ?>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="assets/js/master.js"></script>
+    <?php
+    echo "</body>\n</html>";
+}
+?>
