@@ -2,6 +2,8 @@
 session_start();
 include_once 'models/users.php';
 include_once 'models/type.php';
+include_once 'models/playlist.php';
+include_once 'controlers/navController.php';
 include_once 'controlers/siteController.php';
     ?>
     <!doctype html>
@@ -25,13 +27,13 @@ include_once 'controlers/siteController.php';
 
                 <div class="row">
                     <div class="row">
-                        <h2><a href="#" class="hvr-icon-wobble-horizontal">Parcourir les styles </a></h2>
+                        <h2><a href="type.php" class="hvr-icon-wobble-horizontal">Parcourir les styles </a></h2>
                         <p>Fais toi plaisir et découvre ce merveilleux monde musical..</p>
                     </div>
                     <div class="row">
                         <?php
                                 foreach ($selectedType as $type){
-                                    ?> <p class="gender<?=$type->id ?> col-lg-3"><?= $type->gender ?></p> <?php
+                                    ?><div class="parentGender col-lg-3"><div class="gender<?=$type->id ?>"></div></div><?php
                                 }
                         ?>
                     </div>

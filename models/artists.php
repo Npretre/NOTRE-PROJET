@@ -45,7 +45,7 @@ class artists {
 
     public function searchArtists($search) {
         $searchArtistResult = array();
-        $query = 'SELECT `idartists`, `name`, `gender1`, `gender2`, `explicit` FROM `artists` WHERE `name` LIKE :search OR `gender1` LIKE :search OR `gender2` LIKE :search';
+        $query = 'SELECT `idartists`, `name`, `gender1`, `gender2`, `explicit` FROM `artists` WHERE `name` LIKE :search';
         $searchArtists = $this->pdo->prepare($query);
         $searchArtists->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
         if ($searchArtists->execute()) {

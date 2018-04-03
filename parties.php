@@ -2,6 +2,8 @@
 session_start();
 include_once 'models/party.php';
 include_once 'controlers/newParty.php';
+include_once 'models/playlist.php';
+include_once 'controlers/navController.php';
 $pdo = new PDO('mysql:host=localhost;dbname=parky;charset=utf8', 'root', 'Ch@456129@');
 $success = array();
 //delete row on button click
@@ -63,6 +65,7 @@ if (isset($_GET["view_as"]) && $_GET["view_as"] == "json") {
                                 <a href='parties.php?del=<?= $partyuser['idparties']; ?>'><button type="button" class="close"><span aria-hidden="true">&times;</span></button></a>
                                 <a href="party.php?id=<?= $partyuser['idparties']; ?>"><h2><?php echo $partyuser['name']; ?></h2></a>
                                 <p><?php echo $partyuser['description']; ?></p>
+                                <p><?php echo $partyuser['horraire']; ?></p>
                             </div>
                         </div>
                         <?php
@@ -98,7 +101,10 @@ if (isset($_GET["view_as"]) && $_GET["view_as"] == "json") {
                                     <label>Description <span class="countCharaDesc resultDesc">0/120</span></label>
                                     <textarea id="descField" type="text" autocomplete="off" name="description"></textarea>
                                 </div>
-
+                                <div class="field-wrap col-lg-6">
+                                    <label>Horraire</label>
+                                    <input type="time" autocomplete="off" name="horraire" />
+                                </div>
                                 <input type="submit" class="button button-block" name="validateParty" value="Go go go !"/>
                             </form>
                         </div><!-- tab-content -->

@@ -2,6 +2,8 @@
 session_start();
 include_once 'models/users.php';
 include_once 'controlers/profilController.php';
+include_once 'models/playlist.php';
+include_once 'controlers/navController.php';
 $pdo = new PDO('mysql:host=localhost;dbname=parky;charset=utf8', 'root', 'Ch@456129@');
 if (isset($_GET['id']) && $_GET['id'] > 0) {
     $getid = intval($_GET['id']);

@@ -1,13 +1,3 @@
-<?php
-$pdo = new PDO('mysql:host=localhost;dbname=parky;charset=utf8', 'root', 'Ch@456129@');
-if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
-    $getid = intval($_SESSION['id']);
-    $requser = $pdo->prepare('SELECT * FROM `playlists` WHERE `id_users` = :id');
-    $requser->bindValue(':id', $_SESSION['id'], PDO::PARAM_INT);
-    $requser->execute();
-    $playsuser = $requser->fetchAll();
-}
-?>
 <div id="wrapper">
     <div class="overlay"></div>
     <!-- Sidebar -->
@@ -28,7 +18,7 @@ if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
                             // Boucle sur les enregistrements
                             foreach ($playsuser as $playuser) {
                                 ?>
-                                <li><a href="#"><i class="fa fa-fw fa-home"></i> <?php echo $playuser['name']; ?></a></li>
+                                <li><a href="#"><?php echo $playuser['name']; ?></a></li>
                                 <?php
                             }
                             ?>
@@ -36,7 +26,6 @@ if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
                         <li><a href="#" data-toggle="modal" data-target="#newPlaylist">Nouvelle playlist</a></li>
                     </ul>
                 </li>
-                <li> <a href="shoppingCart.php"><i class="fa fa-fw fa-dropbox"></i> Boutique</a> </li>
                 <li> <a href="#"><i class="fa fa-fw fa-twitter"></i> Contact</a> </li>
                 <li> <a href="disconnect.php"><i class="fa fa-fw fa-power-off"></i>  Déconnexion</a> </li>
             </ul>
@@ -65,19 +54,19 @@ if (isset($_SESSION['id']) && $_SESSION['id'] > 0) {
                         <h4 class="modal-title" id="myModalLabel">Nouvelle playlist</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="index.html" method="post">
+                        <form action="#" method="post">
                             <div class="form-group">
-                                <input type="text" name="" value="">
+                                <input type="text" name="name">
                             </div>
                             <div class="form-group">
-                                <textarea name="name" rows="8" cols="80"></textarea>
+                                <textarea name="description" rows="8" cols="80"></textarea>
                             </div>
-                        </form>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                        <button type="submit" class="btn btn-primary">Enregistrer</button>
-                    </div>
+                        <button type="submit" name="createPlaylist" class="btn btn-primary">Enregistrer</button>
+                    </div></form>
                 </div>
             </div>
         </div>

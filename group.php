@@ -2,7 +2,9 @@
 session_start();
 include_once 'models/users.php';
 include_once 'models/artists.php';
-include 'controlers/groupController.php';
+include_once 'models/playlist.php';
+include_once 'controlers/navController.php';
+include_once 'controlers/groupController.php';
 ?>
 <!doctype html>
 <html>
@@ -26,15 +28,17 @@ include 'controlers/groupController.php';
                             <input type="text" name="search_text" id="search_text" placeholder="Sélectionnes le groupe que tu veux.." class="form-control" />
                         </div>
                     </div>
-                <table class="table">
-                    <thead>
-                    <th>Nom</th>
-                    <th>Genre</th>
-                    <th>Explicit</th>
-                    </thead>
-                    <tbody id="result"> 
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Genre</th>
+                                <th>Explicit</th>
+                            </tr>
+                        </thead>
+                        <tbody id="result"> 
+                        </tbody>
+                    </table>
 
             </div>
         </div>

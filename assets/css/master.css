@@ -1079,22 +1079,122 @@ select{
 th{
     font-size: 24px;
 }
-.gender1{
-    background: red;
+.parentGender{
     height: 285px;
+    width: 285px;
+    transition: all .5s;
+}
+.gender1{
+    background-image: url(../img/gender/metal.png);
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s;
+}
+.parentGender:hover .gender1,
+.parentGender:focus .gender1 {
+    transform: scale(1.2);
+}
+
+.gender1::before {
+    content: "";
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.parentGender:hover .gender1:before,
+.parentGender:focus .gender1:before {
+    display: block;
 }
 .gender2{
     background: lightcoral;
-    height: 285px;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s;
 }
 .gender3{
     background: lightsalmon;
-    height: 285px;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s;
 }
 .gender4{
     background: lightslategrey;
-    height: 285px;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s;
+}.gender5{
+    background: lightslategrey;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s;
 }
+.gender6{
+    background: lightslategrey;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s;
+}
+.gender7{
+    background: lightslategrey;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s;
+}.gender8{
+    background: lightslategrey;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s;
+}.gender9{
+    background: lightslategrey;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s;
+}.gender10{
+    background: lightslategrey;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s;
+}.gender11{
+    background: lightslategrey;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s;
+}.gender12{
+    background: lightslategrey;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all .5s;
+}
+
+
 
 /* Hover.css*/
 
@@ -1181,3 +1281,162 @@ th{
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
 }
+
+
+
+
+
+
+legend {
+    font-size: 32px;
+    text-align: center;
+}
+.profileForm label {
+    font-size: 20px;
+}
+.imgProfileExample {
+    height: 125px;
+    width: 125px;
+}
+.audioCtrl {
+    text-align: center;
+}
+.audioCtrl button {
+    width: 50px;
+    height: 50px;
+}
+.progress {
+    width: 100%;
+    max-width: 100%;
+    margin-left: -8px;
+    height: 30px;
+    background-color: grey;
+}
+.progress-bar {
+    background-color: black;
+}
+#volumeCtrl {
+    margin-left: 10px;
+    width: 100px;
+}
+.profileForm {
+    margin-bottom: 50px;
+}
+.audio-info {
+    margin-top: 80px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.duration {
+    color: white;
+    background-color: black;
+    border-radius: 20%;
+    margin-bottom: 10px;
+    margin-top: -8px;
+    margin-left: 10px;
+    height: 45px;
+    width: 91px;
+    padding-top: 7px;
+    padding-right: 18px;
+    font-size: 25px;
+}
+.tracker {
+    margin-top: 25px;
+    margin-left: 25px;
+    text-align: center;
+}
+.currentProgress {
+    height: 10px;
+}
+
+#hiddenFile {
+    display: none;
+}
+.playlistCreationDate {
+    margin-left: -5px;
+    font-size: 22px;
+    margin-top: 20px;
+    text-align: center;
+    list-style: none;
+}
+#addMusicLibrary {
+    margin-top: 20px;
+}
+.playlistPlayer li {
+    cursor: pointer;
+}
+.playlistPlayer li.active {
+    font-size: 23px;
+    font-weight: bold;
+    background: #286090;
+    background-size: 100%;
+    width: 100%;
+
+}
+.audio-info {
+    text-align: center;
+}
+
+/* Fin css profile.php/
+/* Début css musiclibrary */
+.playlistPlayer {
+    margin-left: -5px;
+    font-size: 22px;
+    margin-top: 20px;
+    text-align: center;
+    list-style: none;
+}
+.playlistArtist {
+    margin-left: -5px;
+    font-size: 22px;
+    margin-top: 20px;
+    text-align: center;
+    list-style: none;
+}
+.playlistSongStyle {
+    margin-left: -5px;
+    font-size: 22px;
+    margin-top: 20px;
+    text-align: center;
+    list-style: none;
+}
+.playlistDelete {
+    margin-left: -5px;
+    font-size: 22px;
+    margin-top: 20px;
+    text-align: center;
+    list-style: none;
+}
+.listAddedMusic span {
+    margin-top: 15px;
+}
+.progressBarPlayer {
+    width: 100%;
+}
+.headerMusicLibrary {
+    font-size: 27px;
+}
+.tooltip {
+    font-size: 18px;
+}
+#customHandle {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+}
+#volumeCtrlMusicLibrary {
+    width: 100px;
+    margin-left: 54px;
+}
+#durationMusicLibrary {
+    margin-top: 15px;
+    margin-left: 60px;
+}
+
+.btn-player{
+    background: red;
+}
+/* Fin css player */

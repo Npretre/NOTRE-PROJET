@@ -160,9 +160,7 @@ $(document).ready(function () {
             search: $('#search_text').val()
         }, function (searchResults) {
             $.each(searchResults, function (idArtists, searchArtists) {
-                $("#result").append('<tr><td>', searchArtists.name, '</td>');
-                $("#result").append('<td>', searchArtists.gender1, ' / ' ,searchArtists.gender2, '</td>');
-                $("#result").append('<td>', searchArtists.explicit, '</td>' ,'</tr>');
+                $("#result").append('<tr><td>' + searchArtists.name + '</td> <td>' + searchArtists.gender1 + ' / ' + searchArtists.gender2 + '</td><td>' + searchArtists.explicit + '</td>' + '</tr>');
             });
         }, 'json');
         $("#result").empty();

@@ -1,101 +1,76 @@
-<?php session_start();
+<?php
+session_start();
 include_once 'models/users.php';
-try {
-        $BDD = new PDO('mysql:host=localhost;dbname=parky;charset=utf8', 'root', 'Ch@456129@');
+include_once 'models/songs.php';
+include_once 'models/playlist.php';
+include_once 'controlers/navController.php';
+include_once 'controlers/songsController.php';
+if (isset($_GET["idPlaylist"])) {
+    $id = $_GET["idPlaylist"];
+    if ($pdo->query("DELETE FROM parties WHERE idparties=$id")) {
+        $success = 'La soirée a bien été supprimé.';
     }
-    catch(Exception $e) { die('Erreur : '.$e->getMessage()); 
-  }
-    // Récupération des données
-    $requete = $BDD->query('SELECT * FROM songs;');
-    $lignes = $requete->fetchAll();
-    
-    $page_title = "Musiques";
-    $as_json = false;
-    if (isset($_GET["view_as"]) && $_GET["view_as"] == "json") {
-        $as_json = true;
-        ob_start();
-    } else {
+}
 ?>
 <!doctype html>
 <html>
-<head>
-<?php
+    <head>
+        <?php
         include "include/header.php";
         echo "<title>" . $page_title . "</title>";
-?>
-</head>
-<body>
-<?php include_once 'nav.php'; ?>
-    <div id="ajax-content">
-<?php } ?>
-    <!-- Page Content -->
-<div class="container">
-    <section class="group-table">
-  <!--for demo wrap-->
-  <h1>Choisis ton groupe</h1>
-  <div class="tbl-header">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <thead>
-        <tr>
-          <th>Nom</th>
-          <th>Genre</th>
-          <th>Nb abonné</th>
-          <th>Explicite</th>
-          <th>Abonnement</th>
-        </tr>
-      </thead>
-    </table>
-  </div>
-  <div class="tbl-content">
-    <table>
-            <thead>
-                <tr>
-
-                </tr>
-            </thead>
-            <tbody>
-<?php
-    // Boucle sur les enregistrements
-    foreach($lignes as $ligne) {
-?>
-                <tr>
-                    <td><?php echo $ligne['name']; ?></td>
-                    <td><?php echo $ligne['artist'] ?></td>
-                    <td><?php echo $ligne['folder']; ?></td>
-                    <td><span  class="explicit"><?php echo $ligne['explicit']; ?></span></td>
-                    <td><button></button></td>
-                </tr>
-<?php
-    }
-?>
-            </tbody>
-        </table>
-  </div>
-</section>
+        ?>
+    </head>
+    <body>
+        <?php include_once 'nav.php'; ?>
+        <div id="ajax-content">
+            <!-- Page Content -->
+            <div class="container">
+                <section class="group-table">
+                    <!--for demo wrap-->
+                    <table class="table">
+                        <thead>
+                        <th>Chanson</th>
+                        <th>Artiste</th>
+                        <th></th>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // Boucle sur les enregistrements
+                            foreach ($selectedSong as $ligne) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $ligne->name; ?></td>
+                                    <td><?php echo $ligne->artist ?></td>
+                                    <td>
+                                        <select onChange="location = this.options[this.selectedIndex].value;"> <a><option value="default" disabled="disabled" selected="selected">Selectionnes ta playlist</option></a>
+                                            <?php
+                                            // Boucle pour afficher les playlists
+                                            foreach ($playsuser as $playuser) {
+                                                ?>
+                                                <option value="songs.php?idPlaylist=<?= $playuser['id_playlists']; ?>&idSongs=<?= $ligne->id_songs ?>"><?= $playuser['name']; ?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+            <?php require_once 'footer.php'; ?> 
+        </div>
     </div>
-<?php require_once 'footer.php'; ?> 
-  </div>
-    
+    <!-- /#page-content-wrapper -->
+    <!-- /#wrapper -->
 </div>
-
-<!-- /#page-content-wrapper -->
-
-
-<!-- /#wrapper -->
-
-<?php
-    if ($as_json) {
-        echo json_encode(array("page" => $page_title, "content" => ob_get_clean()));
-    } else {
-?>
-</div>
-
-
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="assets/js/master.js"></script>
 <script src="assets/js/jquery.js" type="text/javascript"></script>
 <?php
-        echo "</body>\n</html>";
-    }
+echo "</body>\n</html>";
 ?>
